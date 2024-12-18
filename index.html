@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Reminder System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+            width: 80%;
+            max-width: 200px;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        #output {
+            min-height: 50px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Reminder System</h1>
+
+    <h2>Add Task</h2>
+<div class="input-container">
+    <input type="text" id="title" placeholder="Task Title">
+    <input type="number" id="duetime" placeholder="Due Time (in minutes)">
+    <input type="text" id="priority" placeholder="Priority (High/Medium/Low)">
+    <button onclick="handleAddTask()">Add Task</button>
+</div>
+<div id="addTaskOutput"></div> <!-- Separate output area for added tasks -->
+
+<h2>Sort Tasks By Priority</h2>
+<div class="input-container">
+    <button onclick="sortTasksByPriority()">Sort Tasks</button>
+    <button onclick="clearOutput('genreOutput')">Clear Output</button>
+</div>
+<div id="genreOutput"></div> <!-- Output area for sorted tasks -->
+
+<h2>Get Tasks Due Within</h2>
+<div class="input-container">
+    <input type="number" id="minutesInput" placeholder="Minutes">
+    <button onclick="getTasksDueWithin(parseInt(document.getElementById('minutesInput').value))">Get Tasks Due Within</button>
+</div>
+<div id="dueTasksOutput"></div> <!-- Output area for tasks due within specified time -->
+
+<h2>Schedule Reminder</h2>
+<button onclick="scheduleReminders()">Schedule Reminders</button>
+<div id="reminderOutput"></div> <!-- Output area for scheduled reminders -->
+
+    <script type="module" src="main1.js" defer></script>
+</body>
+</html>
